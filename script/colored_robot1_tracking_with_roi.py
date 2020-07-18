@@ -201,7 +201,7 @@ class ColoredTracking:
 if __name__ == '__main__':
 
 	# Initializing your ROS Node
-	rospy.init_node('colored_tracking', anonymous=False)
+	rospy.init_node('colored_tracking_robot1', anonymous=False)
 	color = ColoredTracking()
 
 	# Camera preview
