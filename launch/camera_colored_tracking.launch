@@ -1,0 +1,10 @@
+<launch>
+
+	<!-- COMMON_TRACKING_APPLICATION {COLORED TRACKING} -->
+	<node	pkg="common_tracking_application" 
+		name="colored_tracking" 
+		type="colored_tracking.py"> 
+		<!-- output="screen"> -->
+	</node>
+
+</launch>

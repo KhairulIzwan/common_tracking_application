@@ -172,7 +172,7 @@ class ColoredTracking:
 			self.cbShowImage()
 			
 			# Allow up to one second to connection
-			rospy.sleep(0.1)
+			rospy.sleep(0.01)
 		else:
 			rospy.logerr("No images recieved")
 
