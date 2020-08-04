@@ -1,0 +1,17 @@
+<launch>
+
+	<!-- COMMON_TRACKING_APPLICATION {COLORED TRACKING} [mate-pi] -->
+	<node	pkg="common_tracking_application" 
+		name="colored_robot1_tracking" 
+		type="colored_robot1_tracking.py"> 
+		<!-- output="screen"> -->
+	</node>
+	
+	<!-- COMMON_TRACKING_APPLICATION {COLORED TRACKING} [mate-pi2] -->
+	<node	pkg="common_tracking_application" 
+		name="colored_robot2_tracking" 
+		type="colored_robot2_tracking.py"> 
+		<!-- output="screen"> -->
+	</node>
+
+</launch>
