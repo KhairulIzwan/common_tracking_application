@@ -113,8 +113,8 @@ class ColoredTracking:
 			(self.imgWidth-100, self.imgHeight-10), fontFace, fontScale, 
 			color, thickness, lineType, bottomLeftOrigin)
 
-	# Detect the face(s)
-	def cbFace(self):
+	# Detect the colored object
+	def cbTracking(self):
 		if self.image_received:
 			# resize the frame, blur it, and convert it to the HSV
 			# color space
@@ -191,4 +191,4 @@ if __name__ == '__main__':
 
 	# Camera preview
 	while not rospy.is_shutdown():
-		color.cbFace()
+		color.cbTracking()
