@@ -31,7 +31,7 @@ class ColoredTracking:
 
 	def __init__(self, buffer=16):
 
-		rospy.logwarn("[Robot1] ColoredTracking (ROI) node [ONLINE]")
+		rospy.logwarn("[Robot1] ColoredTracking node [ONLINE]")
 
 		self.bridge = CvBridge()
 
@@ -88,7 +88,7 @@ class ColoredTracking:
 	# Show the output frame
 	def cbShowImage(self):
 
-		cv2.imshow("[Robot1] Color Detector (ROI)", self.cv_image)
+		cv2.imshow("[Robot1] Color Detector", self.cv_image)
 		cv2.waitKey(1)
 
 	# Image information callback
@@ -118,7 +118,7 @@ class ColoredTracking:
 		if self.image_received:
 			# resize the frame, blur it, and convert it to the HSV
 			# color space
-			frame = imutils.resize(self.cv_image, width=self.imgWidth)
+#			frame = imutils.resize(self.cv_image, width=self.imgWidth)
 			blurred = cv2.GaussianBlur(self.cv_image, (11, 11), 0)
 			hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 			
@@ -134,7 +134,7 @@ class ColoredTracking:
 			cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,
 				cv2.CHAIN_APPROX_SIMPLE)
 			cnts = imutils.grab_contours(cnts)
-			center = None
+#			center = None
 			
 			# only proceed if at least one contour was found
 			if len(cnts) > 0:
@@ -153,6 +153,7 @@ class ColoredTracking:
 					cv2.circle(self.cv_image, (int(x), int(y)), int(radius),
 						(0, 255, 255), 2)
 					cv2.circle(self.cv_image, center, 5, (0, 0, 255), -1)
+					
 			# update the points queue
 			self.pts.appendleft(center)
 	
@@ -179,7 +180,7 @@ class ColoredTracking:
 	# rospy shutdown callback
 	def cbShutdown(self):
 		try:
-			rospy.logwarn("[Robot1] ColoredTracking (ROI) node [OFFLINE]")
+			rospy.logwarn("[Robot1] ColoredTracking node [OFFLINE]")
 		finally:
 			cv2.destroyAllWindows()
 

@@ -36,7 +36,7 @@ class ColoredTracking:
 
 	def __init__(self, buffer=16):
 
-		rospy.logwarn("ColoredTracking (ROI) node [ONLINE]")
+		rospy.logwarn("[Robot2] ColoredTracking (ROI) node [ONLINE]")
 
 		self.bridge = CvBridge()
 #		self.roi = RegionOfInterest()
@@ -104,7 +104,7 @@ class ColoredTracking:
 	# Show the output frame
 	def cbShowImage(self):
 
-		cv2.imshow("Haar Face Detector (ROI)", self.cv_image)
+		cv2.imshow("[Robot2] Color Detector (ROI)", self.cv_image)
 		cv2.waitKey(1)
 
 	# Image information callback
@@ -169,7 +169,7 @@ class ColoredTracking:
 			self.cbShowImage()
 			
 			# Allow up to one second to connection
-			rospy.sleep(0.1)
+			rospy.sleep(0.01)
 		else:
 			rospy.logerr("No images recieved")
 
@@ -194,7 +194,7 @@ class ColoredTracking:
 	# rospy shutdown callback
 	def cbShutdown(self):
 		try:
-			rospy.logwarn("ColoredTracking (ROI) node [OFFLINE]")
+			rospy.logwarn("[Robot2] ColoredTracking (ROI) node [OFFLINE]")
 		finally:
 			cv2.destroyAllWindows()
 

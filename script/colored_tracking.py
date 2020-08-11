@@ -88,7 +88,7 @@ class ColoredTracking:
 	# Show the output frame
 	def cbShowImage(self):
 
-		cv2.imshow("Haar Face Detector (ROI)", self.cv_image)
+		cv2.imshow("Haar Face Detector", self.cv_image)
 		cv2.waitKey(1)
 
 	# Image information callback
